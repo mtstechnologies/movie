@@ -22,5 +22,4 @@ public class MovieDTO {
 		count = movie.getCount();
 		image = movie.getImage();
 	}
-	
 }

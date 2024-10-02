@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Data // Lombok para gerar getters, setters e outros métodos
+@Data // Lombok para gerar getters e setters e outros metodos
 @Entity
 @Table(name = "tb_user")
 public class User {

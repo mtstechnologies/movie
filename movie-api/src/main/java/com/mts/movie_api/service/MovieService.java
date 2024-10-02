@@ -21,15 +21,15 @@ public class MovieService {
 	
 	@Transactional(readOnly = true) // indicando que é somente leitura
 	public Page<MovieDTO> findAll(Pageable pageable){
-		Page<Movie> result = movieRepository.findAll(pageable); //recebendo as paginas da entidade
-		Page<MovieDTO> page = result.map(x -> new MovieDTO(x)); //convertendo o resultado para DTO
+		   Page<Movie> result = movieRepository.findAll(pageable); //recebendo as paginas da entidade
+		   Page<MovieDTO> page = result.map(x -> new MovieDTO(x)); //convertendo o resultado para DTO
 		return page;
 	}
 	
 	@Transactional(readOnly = true)
 	public MovieDTO findById(Long id){
-		Movie result = movieRepository.findById(id).get();//para acessar o objeto que está dentro do Optional, é necessário .get()
-		MovieDTO dto = new MovieDTO(result); //convertendo o resultado para DTO
+		   Movie result = movieRepository.findById(id).get();//para acessar o objeto que está dentro do Optional, é necessário .get()
+		   MovieDTO dto = new MovieDTO(result); //convertendo o resultado para DTO
 		return dto;
 	}
 }
