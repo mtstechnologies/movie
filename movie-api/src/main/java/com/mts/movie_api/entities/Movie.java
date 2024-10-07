@@ -9,9 +9,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data // Lombok para gerar getters, setters e outros métodos
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "tb_movie")
 public class Movie {
@@ -34,7 +41,5 @@ public class Movie {
 	
 	public Set<Score> getScores() {
 		return scores;
-	}
-	
-	
+	}	
 }

@@ -1,5 +1,8 @@
 package com.mts.movie_api.service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,7 +55,10 @@ public class ScoreService {
 
 		double avg = sum / movie.getScores().size(); //o método size pega o tamanho da coleção
 
-		movie.setScore(avg);
+		// Formatando a média para ter apenas 1 casa decimal
+	    BigDecimal avgFormatted = new BigDecimal(avg).setScale(1, RoundingMode.HALF_UP);
+	    
+	    movie.setScore(avgFormatted.doubleValue());
 		movie.setCount(movie.getScores().size());
 
 		movie = movieRepository.save(movie);	
